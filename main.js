@@ -108,15 +108,15 @@ function renderBooks(bookData) {
   }
 
   if (!hasIncompleteBooks) {
-    const emptyMessage = document.createElement("p");
-    emptyMessage.innerText = "Tidak ada buku yang belum selesai dibaca.";
-    incompleteBookshelfList.append(emptyMessage);
+    const message = document.createElement("p");
+    message.innerText = "Tidak ada buku yang belum selesai dibaca.";
+    incompleteBookshelfList.append(message);
   }
 
   if (!hasCompleteBooks) {
-    const emptyMessage = document.createElement("p");
-    emptyMessage.innerText = "Tidak ada buku yang sudah selesai dibaca.";
-    completeBookshelfList.append(emptyMessage);
+    const message = document.createElement("p");
+    message.innerText = "Tidak ada buku yang sudah selesai dibaca.";
+    completeBookshelfList.append(message);
   }
 }
 
@@ -197,7 +197,7 @@ function isStorageExist() {
 
 function loadBooksFromStorage() {
   const serializedData = localStorage.getItem(STORAGE_KEY);
-  if (serializedData !== null) {
+  if (serializedData) {
     books = JSON.parse(serializedData);
   }
   renderBooks(books);
